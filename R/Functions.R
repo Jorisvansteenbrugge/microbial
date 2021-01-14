@@ -363,7 +363,7 @@ biomarker<-function(physeq,group,ntree=500,pvalue=0.05,normalize=TRUE,method="re
     if(taxa_are_rows(physeq)){
         physeq<-t(physeq)
     }
-    tax <- as.data.frame(as.matrix(tax_table(physeq)))
+    tax <- as.data.frame(as.matrix(tax_table(physeq)@.Data))
     sam <- as(sample_data(physeq),"data.frame")
     tab <- as.data.frame(otu_table(physeq))
     tab$group<-sam[,group]
